@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://www.devils.com//css/bootstrap.min.css">
+      <link href="/api/css/main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div sec:authorize="isAuthenticated()">
+        <form id="logoutForm" method="POST" th:action="@{/logout}">
+        </form>
+        <h2>Welcome <span sec:authentication="name"></span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+    </div>
+  </div>
+   <script src="http://www.devils.com/scripts/jquery-3.6.0.js" ></script>
+   <script src="http://www.devils.com/scripts/bootstrap.min.js"></script>
+   <script src="https://unpkg.com/@popperjs/core@2"></script>
+</body>
+</html>
